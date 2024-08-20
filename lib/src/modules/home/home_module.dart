@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:nested_route/src/modules/home/pages/home_page.dart';
+import 'package:nested_route/src/modules/home/widgets/miolo.dart';
 
 class HomeModule extends Module {
   @override
@@ -12,27 +13,24 @@ class HomeModule extends Module {
       children: [
         ChildRoute(
           '/dashboard',
-          child: (context) => ColoredBox(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            child: const Center(
+          child: (_) => const Miolo(
+            child: Center(
               child: Text('Dashboard'),
             ),
           ),
         ),
         ChildRoute(
           '/shop',
-          child: (context) => ColoredBox(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            child: const Center(
+          child: (_) => const Miolo(
+            child: Center(
               child: Text('Shop'),
             ),
           ),
           children: [
             ChildRoute(
               '/cart',
-              child: (context) => ColoredBox(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                child: const Center(
+              child: (_) => const Miolo(
+                child: Center(
                   child: Text('Cart'),
                 ),
               ),
@@ -41,24 +39,22 @@ class HomeModule extends Module {
         ),
         ChildRoute(
           '/ice-cream',
-          child: (context) => ColoredBox(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            child: const Center(
+          child: (_) => const Miolo(
+            child: Center(
               child: Text('Ice-Cream'),
             ),
           ),
         ),
         ChildRoute(
           '/search',
-          child: (context) => ColoredBox(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            child: const Center(
+          child: (_) => const Miolo(
+            child: Center(
               child: Text('Search'),
             ),
           ),
         ),
       ],
-      transition: TransitionType.scale,
+      transition: TransitionType.fadeIn,
     );
   }
 }

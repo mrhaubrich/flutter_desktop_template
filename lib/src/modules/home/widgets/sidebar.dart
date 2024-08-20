@@ -3,7 +3,43 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class Sidebar extends StatefulWidget {
-  const Sidebar({super.key});
+  const Sidebar({
+    super.key,
+    required this.controller,
+  });
+
+  final SidebarXController controller;
+
+  static final items = [
+    SidebarItem(
+      icon: Icons.dashboard,
+      label: 'Dashboard',
+      route: '/dashboard',
+    ),
+    SidebarItem(
+      icon: Icons.shopping_cart,
+      label: 'Shop',
+      route: '/shop',
+    ),
+    SidebarItem(
+      icon: Icons.icecream,
+      label: 'Ice-Cream',
+      route: '/ice-cream',
+    ),
+    SidebarItem(
+      icon: Icons.search,
+      label: 'Search',
+      route: '/search',
+    ),
+  ];
+
+  static final footerItems = [
+    SidebarItem(
+      icon: Icons.settings,
+      label: 'Settings',
+      route: '/settings',
+    ),
+  ];
 
   @override
   State<Sidebar> createState() => _SidebarState();
@@ -17,20 +53,17 @@ const white = Colors.white;
 final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
 
 class _SidebarState extends State<Sidebar> {
-  late final SidebarXController _controller;
+  SidebarXController get controller => widget.controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = SidebarXController(
-      selectedIndex: 0,
-    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SidebarX(
-      controller: _controller,
+      controller: controller,
       theme: SidebarXTheme(
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -65,7 +98,7 @@ class _SidebarState extends State<Sidebar> {
         ),
       ),
       extendedTheme: SidebarXTheme(
-        width: 200,
+        width: 250,
         decoration: BoxDecoration(
           color: canvasColor,
           borderRadius: BorderRadius.circular(20),
@@ -77,62 +110,65 @@ class _SidebarState extends State<Sidebar> {
         thickness: 0.5,
       ),
       headerBuilder: (context, extended) {
-        return DrawerHeader(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const FlutterLogo(),
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                height: extended ? 50 : 0,
-                margin: extended
-                    ? const EdgeInsets.only(top: 10)
-                    : const EdgeInsets.only(top: 0),
-                child: const Text(
-                  'Nested Route',
-                  style: TextStyle(
-                    color: white,
-                    fontSize: 24,
-                  ),
-                  softWrap: false,
-                  overflow: TextOverflow.fade,
-                  maxLines: 1,
+        return InkWell(
+          onTap: () => controller.toggleExtended(),
+          child: DrawerHeader(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AnimatedRotation(
+                  duration: const Duration(milliseconds: 300),
+                  turns: extended ? 1 : 0,
+                  child: const FlutterLogo(),
                 ),
-              ),
-            ],
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  height: extended ? 50 : 0,
+                  margin: extended
+                      ? const EdgeInsets.only(top: 10)
+                      : const EdgeInsets.only(top: 0),
+                  child: const Text(
+                    'Nested Route',
+                    style: TextStyle(
+                      color: white,
+                      fontSize: 24,
+                    ),
+                    softWrap: false,
+                    overflow: TextOverflow.fade,
+                    maxLines: 1,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
-      items: [
-        SidebarXItem(
-          icon: Icons.dashboard,
-          label: 'Dashboard',
-          onTap: () => Modular.to.navigate('/dashboard'),
-        ),
-        SidebarXItem(
-          icon: Icons.shopping_cart,
-          label: 'Shop',
-          onTap: () => Modular.to.navigate('/shop'),
-        ),
-        SidebarXItem(
-          icon: Icons.icecream,
-          label: 'Ice-Cream',
-          onTap: () => Modular.to.navigate('/ice-cream'),
-        ),
-        SidebarXItem(
-          icon: Icons.search,
-          label: 'Search',
-          onTap: () => Modular.to.navigate('/search'),
-        ),
-      ],
-      footerItems: [
-        SidebarXItem(
-          icon: Icons.settings,
-          label: 'Settings',
-          onTap: () => Modular.to.navigate('/settings'),
-        ),
-      ],
+      items: Sidebar.items,
+      footerItems: Sidebar.footerItems,
       footerFitType: FooterFitType.fit,
+      toggleButtonBuilder: (context, extended) {
+        return const SizedBox(
+          height: 10,
+        );
+      },
     );
   }
+}
+
+class SidebarItem extends SidebarXItem {
+  SidebarItem({
+    required this.route,
+    super.icon,
+    super.label,
+    dynamic Function()? onTap,
+  }) : super(
+          onTap: () {
+            Modular.to.navigate(route);
+            if (onTap != null) {
+              onTap();
+            }
+          },
+        );
+
+  final String route;
 }
