@@ -78,15 +78,28 @@ class _SidebarState extends State<Sidebar> {
         thickness: 0.5,
       ),
       headerBuilder: (context, extended) {
-        return const DrawerHeader(
-          child: AutoSizeText(
-            'Nested Route',
-            style: TextStyle(color: white),
-            softWrap: false,
-            textScaleFactor: 2,
-            maxFontSize: 65,
-            minFontSize: 12,
-            maxLines: 1,
+        return DrawerHeader(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const FlutterLogo(),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                height: extended ? 50 : 0,
+                margin: extended
+                    ? const EdgeInsets.only(top: 10)
+                    : const EdgeInsets.only(top: 0),
+                child: const AutoSizeText(
+                  'Nested Route',
+                  style: TextStyle(color: white),
+                  softWrap: false,
+                  textScaleFactor: 2,
+                  maxFontSize: 65,
+                  minFontSize: 12,
+                  maxLines: 1,
+                ),
+              ),
+            ],
           ),
         );
       },
