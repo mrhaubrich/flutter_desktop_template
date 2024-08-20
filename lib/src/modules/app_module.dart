@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nested_route/src/home_page.dart';
+import 'package:nested_route/src/modules/home/home_module.dart';
 
 class AppModule extends Module {
   @override
@@ -7,9 +7,6 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child(
-      '/',
-      child: (context) => const HomePage(),
-    );
+    r.module('/', module: HomeModule());
   }
 }
