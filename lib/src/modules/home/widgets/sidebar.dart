@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sidebarx/sidebarx.dart';
 
-class Sidebar extends StatefulWidget {
+class Sidebar extends StatelessWidget {
   const Sidebar({
     super.key,
     required this.controller,
@@ -40,25 +40,6 @@ class Sidebar extends StatefulWidget {
       route: '/settings',
     ),
   ];
-
-  @override
-  State<Sidebar> createState() => _SidebarState();
-}
-
-const primaryColor = Color(0xFF685BFF);
-const canvasColor = Color(0xFF2E2E48);
-const scaffoldBackgroundColor = Color(0xFF464667);
-const accentCanvasColor = Color(0xFF3E3E61);
-const white = Colors.white;
-final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
-
-class _SidebarState extends State<Sidebar> {
-  SidebarXController get controller => widget.controller;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,8 +124,8 @@ class _SidebarState extends State<Sidebar> {
           ),
         );
       },
-      items: Sidebar.items,
-      footerItems: Sidebar.footerItems,
+      items: items,
+      footerItems: footerItems,
       footerFitType: FooterFitType.fit,
       toggleButtonBuilder: (context, extended) {
         return const SizedBox(
@@ -154,6 +135,13 @@ class _SidebarState extends State<Sidebar> {
     );
   }
 }
+
+const primaryColor = Color(0xFF685BFF);
+const canvasColor = Color(0xFF2E2E48);
+const scaffoldBackgroundColor = Color(0xFF464667);
+const accentCanvasColor = Color(0xFF3E3E61);
+const white = Colors.white;
+final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
 
 class SidebarItem extends SidebarXItem {
   SidebarItem({
@@ -171,4 +159,8 @@ class SidebarItem extends SidebarXItem {
         );
 
   final String route;
+}
+
+class MySideBarController extends SidebarXController {
+  MySideBarController() : super(selectedIndex: 0);
 }

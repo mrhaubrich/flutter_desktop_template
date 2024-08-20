@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:nested_route/src/modules/home/pages/home_page.dart';
 import 'package:nested_route/src/modules/home/widgets/miolo.dart';
+import 'package:nested_route/src/modules/home/widgets/sidebar.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 class HomeModule extends Module {
+  @override
+  void binds(Injector i) {
+    i.add<SidebarXController>(MySideBarController.new);
+  }
+
   @override
   void routes(RouteManager r) {
     Modular.setInitialRoute('/dashboard');
