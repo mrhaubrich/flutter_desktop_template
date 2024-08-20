@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sidebarx/sidebarx.dart';
@@ -89,13 +88,14 @@ class _SidebarState extends State<Sidebar> {
                 margin: extended
                     ? const EdgeInsets.only(top: 10)
                     : const EdgeInsets.only(top: 0),
-                child: const AutoSizeText(
+                child: const Text(
                   'Nested Route',
-                  style: TextStyle(color: white),
+                  style: TextStyle(
+                    color: white,
+                    fontSize: 24,
+                  ),
                   softWrap: false,
-                  textScaleFactor: 2,
-                  maxFontSize: 65,
-                  minFontSize: 12,
+                  overflow: TextOverflow.fade,
                   maxLines: 1,
                 ),
               ),
