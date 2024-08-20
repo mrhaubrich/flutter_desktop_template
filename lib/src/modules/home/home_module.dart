@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:nested_route/src/modules/home/pages/home_page.dart';
 
@@ -12,37 +12,53 @@ class HomeModule extends Module {
       children: [
         ChildRoute(
           '/dashboard',
-          child: (_) => const Center(
-            child: Text('Dashboard'),
+          child: (context) => ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: const Center(
+              child: Text('Dashboard'),
+            ),
           ),
         ),
         ChildRoute(
           '/shop',
-          child: (_) => const Center(
-            child: Text('Shop'),
+          child: (context) => ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: const Center(
+              child: Text('Shop'),
+            ),
           ),
           children: [
             ChildRoute(
               '/cart',
-              child: (_) => const Center(
-                child: Text('Cart'),
+              child: (context) => ColoredBox(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: const Center(
+                  child: Text('Cart'),
+                ),
               ),
             ),
           ],
         ),
         ChildRoute(
           '/ice-cream',
-          child: (_) => const Center(
-            child: Text('Ice-Cream'),
+          child: (context) => ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: const Center(
+              child: Text('Ice-Cream'),
+            ),
           ),
         ),
         ChildRoute(
           '/search',
-          child: (_) => const Center(
-            child: Text('Search'),
+          child: (context) => ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: const Center(
+              child: Text('Search'),
+            ),
           ),
         ),
       ],
+      transition: TransitionType.scale,
     );
   }
 }

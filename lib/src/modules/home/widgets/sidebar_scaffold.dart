@@ -12,9 +12,7 @@ class SidebarScaffold extends StatelessWidget {
         children: [
           Sidebar(),
           Expanded(
-            child: Scaffold(
-              body: RouterOutlet(),
-            ),
+            child: RouterOutlet(),
           ),
         ],
       ),
