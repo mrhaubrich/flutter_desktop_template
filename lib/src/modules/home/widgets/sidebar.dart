@@ -125,6 +125,14 @@ class _SidebarState extends State<Sidebar> {
           onTap: () => Modular.to.navigate('/search'),
         ),
       ],
+      footerItems: [
+        SidebarXItem(
+          icon: Icons.settings,
+          label: 'Settings',
+          onTap: () => Modular.to.navigate('/settings'),
+        ),
+      ],
+      footerFitType: FooterFitType.fit,
     );
   }
 }

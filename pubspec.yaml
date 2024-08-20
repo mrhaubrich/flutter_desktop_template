@@ -14,7 +14,10 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   flutter_modular: ^6.3.4
-  sidebarx: ^0.17.1
+
+  sidebarx:
+    git:
+      url: https://github.com/mrhaubrich/sidebarx.git
   auto_size_text: ^3.0.0
 
 dev_dependencies:
