@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nested_route/src/modules/home/widgets/miolo.dart';
+import 'package:nested_route/src/modules/home/modules/settings/pages/settings_page.dart';
 
 /// The Settings module of the application.
 class SettingsModule extends Module {
@@ -8,11 +7,7 @@ class SettingsModule extends Module {
   void routes(RouteManager r) {
     r.child(
       '/',
-      child: (_) => const Miolo(
-        child: Center(
-          child: Text('Settings'),
-        ),
-      ),
+      child: (_) => const SettingsPage(),
     );
   }
 }

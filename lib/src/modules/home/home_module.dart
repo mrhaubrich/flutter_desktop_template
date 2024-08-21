@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:nested_route/src/modules/home/controllers/bottom_bar_controller.dart';
 import 'package:nested_route/src/modules/home/modules/dashboard/dashboard_module.dart';
 import 'package:nested_route/src/modules/home/modules/ice_cream/ice_cream_module.dart';
 import 'package:nested_route/src/modules/home/modules/search/search_module.dart';
@@ -12,7 +13,9 @@ import 'package:sidebarx/sidebarx.dart';
 class HomeModule extends Module {
   @override
   void binds(Injector i) {
-    i.add<SidebarXController>(MySideBarController.new);
+    i
+      ..add<SidebarXController>(MySideBarController.new)
+      ..addLazySingleton<BottomBarController>(BottomBarController.new);
   }
 
   @override
