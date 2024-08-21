@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// The widget that represents the main content of the application.
 class Miolo extends StatelessWidget {
+  /// The widget that represents the main content of the application.
   const Miolo({
-    super.key,
     required this.child,
+    super.key,
   });
 
+  /// Child widget that will be displayed in the main content.
   final Widget child;
 
   @override

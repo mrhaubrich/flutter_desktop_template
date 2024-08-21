@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # ignore: sort_pub_dependencies
   cupertino_icons: ^1.0.8
   flutter_modular: ^6.3.4
 
@@ -24,7 +25,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # ignore: sort_pub_dependencies
   flutter_lints: ^4.0.0
+  very_good_analysis: ^6.0.0
 
 flutter:
   uses-material-design: true

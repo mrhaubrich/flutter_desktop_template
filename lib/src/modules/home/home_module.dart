@@ -5,6 +5,7 @@ import 'package:nested_route/src/modules/home/widgets/miolo.dart';
 import 'package:nested_route/src/modules/home/widgets/sidebar.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+/// The Home module of the application.
 class HomeModule extends Module {
   @override
   void binds(Injector i) {

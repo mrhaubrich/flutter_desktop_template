@@ -2,44 +2,57 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+const _accentCanvasColor = Color(0xFF3E3E61);
+
+const _canvasColor = Color(0xFF2E2E48);
+const _white = Colors.white;
+final _actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
+
+/// Sidebar controller.
+class MySideBarController extends SidebarXController {
+  /// Sidebar controller.
+  MySideBarController() : super(selectedIndex: 0);
+}
+
+/// Sidebar widget.
 class Sidebar extends StatelessWidget {
+  /// Sidebar widget.
   const Sidebar({
-    super.key,
     required this.controller,
+    super.key,
   });
-
-  final SidebarXController controller;
-
-  static final items = [
-    SidebarItem(
+  static final _items = [
+    _SidebarItem(
       icon: Icons.dashboard,
       label: 'Dashboard',
       route: '/dashboard',
     ),
-    SidebarItem(
+    _SidebarItem(
       icon: Icons.shopping_cart,
       label: 'Shop',
       route: '/shop',
     ),
-    SidebarItem(
+    _SidebarItem(
       icon: Icons.icecream,
       label: 'Ice-Cream',
       route: '/ice-cream',
     ),
-    SidebarItem(
+    _SidebarItem(
       icon: Icons.search,
       label: 'Search',
       route: '/search',
     ),
   ];
-
-  static final footerItems = [
-    SidebarItem(
+  static final _footerItems = [
+    _SidebarItem(
       icon: Icons.settings,
       label: 'Settings',
       route: '/settings',
     ),
   ];
+
+  /// The controller of the sidebar.
+  final SidebarXController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +61,7 @@ class Sidebar extends StatelessWidget {
       theme: SidebarXTheme(
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: canvasColor,
+          color: _canvasColor,
           borderRadius: BorderRadius.circular(20),
         ),
         textStyle: const TextStyle(color: Colors.white),
@@ -56,21 +69,21 @@ class Sidebar extends StatelessWidget {
         itemTextPadding: const EdgeInsets.only(left: 30),
         selectedItemTextPadding: const EdgeInsets.only(left: 30),
         itemDecoration: BoxDecoration(
-          border: Border.all(color: canvasColor),
+          border: Border.all(color: _canvasColor),
         ),
         selectedItemDecoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: actionColor.withOpacity(0.37),
+            color: _actionColor.withOpacity(0.37),
           ),
           gradient: const LinearGradient(
-            colors: [accentCanvasColor, canvasColor],
+            colors: [_accentCanvasColor, _canvasColor],
           ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.28),
               blurRadius: 30,
-            )
+            ),
           ],
         ),
         iconTheme: const IconThemeData(
@@ -81,7 +94,7 @@ class Sidebar extends StatelessWidget {
       extendedTheme: SidebarXTheme(
         width: 250,
         decoration: BoxDecoration(
-          color: canvasColor,
+          color: _canvasColor,
           borderRadius: BorderRadius.circular(20),
         ),
         margin: const EdgeInsets.all(10),
@@ -92,7 +105,7 @@ class Sidebar extends StatelessWidget {
       ),
       headerBuilder: (context, extended) {
         return InkWell(
-          onTap: () => controller.toggleExtended(),
+          onTap: controller.toggleExtended,
           child: DrawerHeader(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -107,11 +120,11 @@ class Sidebar extends StatelessWidget {
                   height: extended ? 50 : 0,
                   margin: extended
                       ? const EdgeInsets.only(top: 10)
-                      : const EdgeInsets.only(top: 0),
+                      : EdgeInsets.zero,
                   child: const Text(
                     'Nested Route',
                     style: TextStyle(
-                      color: white,
+                      color: _white,
                       fontSize: 24,
                     ),
                     softWrap: false,
@@ -124,8 +137,8 @@ class Sidebar extends StatelessWidget {
           ),
         );
       },
-      items: items,
-      footerItems: footerItems,
+      items: _items,
+      footerItems: _footerItems,
       footerFitType: FooterFitType.fit,
       toggleButtonBuilder: (context, extended) {
         return const SizedBox(
@@ -136,15 +149,8 @@ class Sidebar extends StatelessWidget {
   }
 }
 
-const primaryColor = Color(0xFF685BFF);
-const canvasColor = Color(0xFF2E2E48);
-const scaffoldBackgroundColor = Color(0xFF464667);
-const accentCanvasColor = Color(0xFF3E3E61);
-const white = Colors.white;
-final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
-
-class SidebarItem extends SidebarXItem {
-  SidebarItem({
+class _SidebarItem extends SidebarXItem {
+  _SidebarItem({
     required this.route,
     super.icon,
     super.label,
@@ -157,10 +163,5 @@ class SidebarItem extends SidebarXItem {
             }
           },
         );
-
   final String route;
-}
-
-class MySideBarController extends SidebarXController {
-  MySideBarController() : super(selectedIndex: 0);
 }

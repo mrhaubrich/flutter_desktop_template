@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+/// The main widget of the application.
 class AppWidget extends StatelessWidget {
+  /// The main widget of the application.
   const AppWidget({super.key});
 
   @override
