@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:nested_route/src/modules/home/modules/dashboard/dashboard_module.dart';
+import 'package:nested_route/src/modules/home/modules/ice_cream/ice_cream_module.dart';
+import 'package:nested_route/src/modules/home/modules/search/search_module.dart';
+import 'package:nested_route/src/modules/home/modules/settings/settings_module.dart';
+import 'package:nested_route/src/modules/home/modules/shop/shop_module.dart';
 import 'package:nested_route/src/modules/home/pages/home_page.dart';
-import 'package:nested_route/src/modules/home/widgets/miolo.dart';
 import 'package:nested_route/src/modules/home/widgets/sidebar.dart';
 import 'package:sidebarx/sidebarx.dart';
 
@@ -19,48 +22,11 @@ class HomeModule extends Module {
       '/',
       child: (_) => const HomePage(),
       children: [
-        ChildRoute(
-          '/dashboard',
-          child: (_) => const Miolo(
-            child: Center(
-              child: Text('Dashboard'),
-            ),
-          ),
-        ),
-        ChildRoute(
-          '/shop',
-          child: (_) => const Miolo(
-            child: Center(
-              child: Text('Shop'),
-            ),
-          ),
-          children: [
-            ChildRoute(
-              '/cart',
-              child: (_) => const Miolo(
-                child: Center(
-                  child: Text('Cart'),
-                ),
-              ),
-            ),
-          ],
-        ),
-        ChildRoute(
-          '/ice-cream',
-          child: (_) => const Miolo(
-            child: Center(
-              child: Text('Ice-Cream'),
-            ),
-          ),
-        ),
-        ChildRoute(
-          '/search',
-          child: (_) => const Miolo(
-            child: Center(
-              child: Text('Search'),
-            ),
-          ),
-        ),
+        ParallelRoute.module('/settings', module: SettingsModule()),
+        ParallelRoute.module('/dashboard', module: DashboardModule()),
+        ParallelRoute.module('/shop', module: ShopModule()),
+        ParallelRoute.module('/ice-cream', module: IceCreamModule()),
+        ParallelRoute.module('/search', module: SearchModule()),
       ],
       transition: TransitionType.fadeIn,
     );

@@ -25,29 +25,29 @@ class Sidebar extends StatelessWidget {
     _SidebarItem(
       icon: Icons.dashboard,
       label: 'Dashboard',
-      route: '/dashboard',
+      route: '/dashboard/',
     ),
     _SidebarItem(
       icon: Icons.shopping_cart,
       label: 'Shop',
-      route: '/shop',
+      route: '/shop/',
     ),
     _SidebarItem(
       icon: Icons.icecream,
       label: 'Ice-Cream',
-      route: '/ice-cream',
+      route: '/ice-cream/',
     ),
     _SidebarItem(
       icon: Icons.search,
       label: 'Search',
-      route: '/search',
+      route: '/search/',
     ),
   ];
   static final _footerItems = [
     _SidebarItem(
       icon: Icons.settings,
       label: 'Settings',
-      route: '/settings',
+      route: '/settings/',
     ),
   ];
 
