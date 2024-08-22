@@ -15,6 +15,7 @@ class BottomBar extends StatelessWidget {
         final controller = Modular.get<BottomBarController>();
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOutCirc,
           height: controller.isBottomBarVisible ? 60 : 0,
           margin: EdgeInsets.only(
             bottom: controller.isBottomBarVisible ? 10 : 0,
