@@ -122,7 +122,7 @@ class Sidebar extends StatelessWidget {
                       ? const EdgeInsets.only(top: 10)
                       : EdgeInsets.zero,
                   child: const Text(
-                    'Nested Route',
+                    'Flutter Desktop',
                     style: TextStyle(
                       color: _white,
                       fontSize: 24,

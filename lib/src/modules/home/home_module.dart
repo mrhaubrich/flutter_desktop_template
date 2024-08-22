@@ -1,12 +1,12 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nested_route/src/modules/home/controllers/bottom_bar_controller.dart';
-import 'package:nested_route/src/modules/home/modules/dashboard/dashboard_module.dart';
-import 'package:nested_route/src/modules/home/modules/ice_cream/ice_cream_module.dart';
-import 'package:nested_route/src/modules/home/modules/search/search_module.dart';
-import 'package:nested_route/src/modules/home/modules/settings/settings_module.dart';
-import 'package:nested_route/src/modules/home/modules/shop/shop_module.dart';
-import 'package:nested_route/src/modules/home/pages/home_page.dart';
-import 'package:nested_route/src/modules/home/widgets/sidebar.dart';
+import 'package:flutter_desktop_template/src/modules/home/controllers/bottom_bar_controller.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/dashboard/dashboard_module.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/ice_cream/ice_cream_module.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/search/search_module.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/settings/settings_module.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/shop/shop_module.dart';
+import 'package:flutter_desktop_template/src/modules/home/pages/home_page.dart';
+import 'package:flutter_desktop_template/src/modules/home/widgets/sidebar.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 /// The Home module of the application.
