@@ -28,6 +28,7 @@
 - [🎈 Usage ](#-usage-)
 - [⛏️ Built Using ](#️-built-using-)
 - [✍️ Authors ](#️-authors-)
+- [📝 TODO ][todoReference]
 
 ## 🧐 About <a name = "about"></a>
 
@@ -67,3 +68,5 @@ flutter run
 - [@mrhaubrich](https://github.com/mrhaubrich) - Idea & Initial work
 
 See also the list of [contributors](https://github.com/mrhaubrich/flutter_desktop_template/contributors) who participated in this project.
+
+[todoReference]: TODO.md
