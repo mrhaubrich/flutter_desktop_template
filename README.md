@@ -28,13 +28,24 @@
 - [🎈 Usage ](#-usage-)
 - [⛏️ Built Using ](#️-built-using-)
 - [✍️ Authors ](#️-authors-)
-- [📝 TODO ](./TODO.md)
 
 ## 🧐 About <a name = "about"></a>
 
 This is a template for a Desktop application using Flutter. It's a simple project that uses Flutter Modular and SidebarX to create a sidebar and nested routes. It's a good starting point for a desktop application.
 
 ## 🎈 Usage <a name="usage"></a>
+
+Because we use `super_context_menu`, you need to have [Rust](https://rustup.rs/) installed:
+
+For macOS or Linux, execute the following command in Terminal:
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+In case you have Rust already installed, make sure to update it to latest version:
+```bash
+rustup update
+```
 
 To use this template, you can clone this repository and run the following commands:
 
@@ -49,6 +60,7 @@ flutter run
 - [Dart](https://dart.dev/) - Language
 - [Flutter Modular](https://pub.dev/packages/flutter_modular) - Routing and Dependency Injection
 - [SidebarX](https://pub.dev/packages/sidebar) - Sidebar (I'm using a personal fork of this package)
+- [Super Context Menu](https://pub.dev/packages/super_context_menu) - Context Menu
 
 ## ✍️ Authors <a name = "authors"></a>
 
