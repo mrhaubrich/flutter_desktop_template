@@ -20,7 +20,10 @@ class DashboardPage extends StatelessWidget {
         child: Wrap(
           children: [
             ExampleContextMenu(
-              child: ExampleCard(),
+              child: ExampleCard(
+                title: Text('Card 1'),
+                subtitle: Text('Right-click me!'),
+              ),
             ),
           ],
         ),

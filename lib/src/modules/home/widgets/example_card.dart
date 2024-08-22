@@ -4,8 +4,16 @@ import 'package:flutter/material.dart';
 class ExampleCard extends StatelessWidget {
   /// Creates an example card widget.
   const ExampleCard({
+    required this.title,
+    required this.subtitle,
     super.key,
   });
+
+  /// The title widget.
+  final Widget title;
+
+  /// The subtitle widget.
+  final Widget subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +25,16 @@ class ExampleCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(10),
           onSecondaryTap: () {},
-          child: const Padding(
-            padding: EdgeInsets.all(8),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('Example Card'),
-                Text('This is an example card.'),
+                DefaultTextStyle(
+                  style: Theme.of(context).textTheme.titleLarge!,
+                  child: title,
+                ),
+                subtitle,
               ],
             ),
           ),
