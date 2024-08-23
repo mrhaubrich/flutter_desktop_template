@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_desktop_template/src/modules/home/modules/dashboard/pages/dashboard_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_desktop_template/src/modules/home/widgets/miolo.dart';
 
 /// The Dashboard module of the application.
 class DashboardModule extends Module {
@@ -8,11 +7,7 @@ class DashboardModule extends Module {
   void routes(RouteManager r) {
     r.child(
       '/',
-      child: (_) => const Miolo(
-        child: Center(
-          child: Text('Dashboard'),
-        ),
-      ),
+      child: (_) => const DashboardPage(),
     );
   }
 }

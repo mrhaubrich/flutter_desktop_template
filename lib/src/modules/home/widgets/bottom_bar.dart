@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_desktop_template/src/modules/home/controllers/bottom_bar_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 /// The bottom bar of the application.
 class BottomBar extends StatelessWidget {
@@ -15,6 +15,7 @@ class BottomBar extends StatelessWidget {
         final controller = Modular.get<BottomBarController>();
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOutCirc,
           height: controller.isBottomBarVisible ? 60 : 0,
           margin: EdgeInsets.only(
             bottom: controller.isBottomBarVisible ? 10 : 0,
