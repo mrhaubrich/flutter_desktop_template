@@ -24,7 +24,7 @@ class MenuBarController {
             FilePicker.platform.pickFiles().then(
               (result) {
                 if (result != null) {
-                  print(result.files.single.path);
+                  debugPrint(result.files.single.path);
                 }
               },
             );
