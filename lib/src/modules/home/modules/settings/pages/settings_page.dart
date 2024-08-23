@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_desktop_template/src/modules/home/controllers/bottom_bar_controller.dart';
+import 'package:flutter_desktop_template/src/modules/home/controllers/menu_bar_controller.dart';
 import 'package:flutter_desktop_template/src/modules/home/widgets/miolo.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -27,6 +28,19 @@ class SettingsPage extends StatelessWidget {
                 },
                 title: const Text('Show Bottom Bar'),
                 subtitle: const Text('Show or hide the bottom bar.'),
+              );
+            },
+          ),
+          ValueListenableBuilder(
+            valueListenable: Modular.get<MenuBarController>().isToggled,
+            builder: (context, value, child) {
+              return SwitchListTile(
+                value: value,
+                onChanged: (value) {
+                  Modular.get<MenuBarController>().toggle();
+                },
+                title: const Text('Show Menu Bar'),
+                subtitle: const Text('Show or hide the menu bar.'),
               );
             },
           ),
