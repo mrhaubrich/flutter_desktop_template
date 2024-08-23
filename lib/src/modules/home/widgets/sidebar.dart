@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_desktop_template/src/colors.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sidebarx/sidebarx.dart';
-
-const _accentCanvasColor = Color(0xFF3E3E61);
-
-const _canvasColor = Color(0xFF2E2E48);
-const _white = Colors.white;
-final _actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
 
 /// Sidebar controller.
 class MySideBarController extends SidebarXController {
@@ -61,7 +56,7 @@ class Sidebar extends StatelessWidget {
       theme: SidebarXTheme(
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: _canvasColor,
+          color: canvasColor,
           borderRadius: BorderRadius.circular(20),
         ),
         textStyle: const TextStyle(color: Colors.white),
@@ -69,15 +64,15 @@ class Sidebar extends StatelessWidget {
         itemTextPadding: const EdgeInsets.only(left: 30),
         selectedItemTextPadding: const EdgeInsets.only(left: 30),
         itemDecoration: BoxDecoration(
-          border: Border.all(color: _canvasColor),
+          border: Border.all(color: canvasColor),
         ),
         selectedItemDecoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: _actionColor.withOpacity(0.37),
+            color: actionColor.withOpacity(0.37),
           ),
           gradient: const LinearGradient(
-            colors: [_accentCanvasColor, _canvasColor],
+            colors: [accentCanvasColor, canvasColor],
           ),
           boxShadow: [
             BoxShadow(
@@ -94,7 +89,7 @@ class Sidebar extends StatelessWidget {
       extendedTheme: SidebarXTheme(
         width: 250,
         decoration: BoxDecoration(
-          color: _canvasColor,
+          color: canvasColor,
           borderRadius: BorderRadius.circular(20),
         ),
         margin: const EdgeInsets.all(10),
@@ -124,7 +119,7 @@ class Sidebar extends StatelessWidget {
                   child: const Text(
                     'Flutter Desktop',
                     style: TextStyle(
-                      color: _white,
+                      color: white,
                       fontSize: 24,
                     ),
                     softWrap: false,

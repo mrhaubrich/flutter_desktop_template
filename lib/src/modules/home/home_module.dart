@@ -1,4 +1,5 @@
 import 'package:flutter_desktop_template/src/modules/home/controllers/bottom_bar_controller.dart';
+import 'package:flutter_desktop_template/src/modules/home/controllers/menu_bar_controller.dart';
 import 'package:flutter_desktop_template/src/modules/home/modules/dashboard/dashboard_module.dart';
 import 'package:flutter_desktop_template/src/modules/home/modules/ice_cream/ice_cream_module.dart';
 import 'package:flutter_desktop_template/src/modules/home/modules/search/search_module.dart';
@@ -15,7 +16,8 @@ class HomeModule extends Module {
   void binds(Injector i) {
     i
       ..add<SidebarXController>(MySideBarController.new)
-      ..addLazySingleton<BottomBarController>(BottomBarController.new);
+      ..addLazySingleton<BottomBarController>(BottomBarController.new)
+      ..addSingleton<MenuBarController>(MenuBarController.new);
   }
 
   @override
