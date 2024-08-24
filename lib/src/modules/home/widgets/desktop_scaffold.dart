@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_desktop_template/src/layout/title_bar.dart';
 import 'package:flutter_desktop_template/src/modules/home/widgets/bottom_bar.dart';
 import 'package:flutter_desktop_template/src/modules/home/widgets/sidebar.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -20,7 +21,12 @@ class DesktopScaffold extends StatelessWidget {
                   controller: Modular.get(),
                 ),
                 const Expanded(
-                  child: RouterOutlet(),
+                  child: Column(
+                    children: [
+                      TitleBar(),
+                      Expanded(child: RouterOutlet()),
+                    ],
+                  ),
                 ),
               ],
             ),
